@@ -20,7 +20,7 @@ namespace KopokopoSdk.Requests
         /// <summary>
         /// The access token belonging to the application that is to be revoked.
         /// </summary>
-        [JsonProperty("grant_type")]
+        [JsonProperty("token")]
         public string Token { get; set; }
     }
 }
