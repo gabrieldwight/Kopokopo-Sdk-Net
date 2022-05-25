@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KopokopoSdk", "KopokopoSdk\KopokopoSdk.csproj", "{70A55E55-37A1-4FD7-B2F2-754C90F4C252}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KopokopoSdk", "KopokopoSdk\KopokopoSdk.csproj", "{70A55E55-37A1-4FD7-B2F2-754C90F4C252}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6EE21E28-CD7B-47C8-A246-CFD08981F292}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KopokopoSdk.Web", "Samples\KopokopoSdk.Web\KopokopoSdk.Web.csproj", "{13BF5154-2CBF-4059-84DF-F8DCDCA8756D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{70A55E55-37A1-4FD7-B2F2-754C90F4C252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70A55E55-37A1-4FD7-B2F2-754C90F4C252}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70A55E55-37A1-4FD7-B2F2-754C90F4C252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13BF5154-2CBF-4059-84DF-F8DCDCA8756D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BF5154-2CBF-4059-84DF-F8DCDCA8756D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BF5154-2CBF-4059-84DF-F8DCDCA8756D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BF5154-2CBF-4059-84DF-F8DCDCA8756D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13BF5154-2CBF-4059-84DF-F8DCDCA8756D} = {6EE21E28-CD7B-47C8-A246-CFD08981F292}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58B8851B-E502-498E-80FE-BFE558800323}
