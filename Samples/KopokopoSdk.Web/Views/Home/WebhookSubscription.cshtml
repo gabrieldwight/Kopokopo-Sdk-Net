@@ -1,0 +1,42 @@
+﻿@model WebSubcriptionViewModel
+
+@{
+	ViewData["Title"] = "Kopokopo webhook subcription";
+}
+
+<div class="col-md-12">
+	<div class="card">
+		<div class="header">
+			<h4 class="title">Create Kopokopo webhook subscription</h4>
+		</div>
+		<div class="content">
+			<hr />
+			<form asp-action="WebhookSubscription">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group">
+					<label class="control-label">QR Type</label>
+					<select class="form-control form-select form-select-lg mb-3" asp-for="SelectedEventType" asp-items="@Model.WebhookEventType"></select>
+					<span asp-validation-for="SelectedEventType" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">Webhook url</label>
+					<input asp-for="WebhookUrl" class="form-control" />
+					<span asp-validation-for="WebhookUrl" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">QR Format</label>
+					<select class="form-control form-select form-select-lg mb-3" asp-for="SelectedScope" asp-items="@Model.WebhookScope"></select>
+					<span asp-validation-for="SelectedScope" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">Scope Reference</label>
+					<input asp-for="WebhookScopeReference" class="form-control" />
+					<span asp-validation-for="WebhookScopeReference" class="form-control" />
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Create Webhook Subscription" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
