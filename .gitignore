@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Samples/KopokopoSdk.Web/appsettings.json
+/Samples/KopokopoSdk.Web/appsettings.Development.json
