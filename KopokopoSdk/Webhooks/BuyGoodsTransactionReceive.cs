@@ -48,13 +48,13 @@ namespace KopokopoSdk.Webhooks
         /// The api reference of the transaction
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// The amount of the transaction
         /// </summary>
         [JsonProperty("amount")]
-        public string Amount { get; set; }
+        public string? Amount { get; set; }
 
         /// <summary>
         /// The status of the transaction
@@ -96,7 +96,7 @@ namespace KopokopoSdk.Webhooks
         /// The transaction timestamp
         /// </summary>
         [JsonProperty("origination_time")]
-        public DateTimeOffset OriginationTime { get; set; }
+        public DateTimeOffset? OriginationTime { get; set; }
 
         /// <summary>
         /// Last name of payer
@@ -114,6 +114,6 @@ namespace KopokopoSdk.Webhooks
         /// Middle name of payer
         /// </summary>
         [JsonProperty("sender_middle_name")]
-        public string SenderMiddleName { get; set; }
+        public string? SenderMiddleName { get; set; }
     }
 }
