@@ -154,7 +154,7 @@ var accesstoken = await _kopokopoClient..GetOAuthTokenAsync(kopokopoApplicationA
 
 ```
 
-Note that you have to pass in a ClientId, ClientSecret provided by Mpesa.
+Note that you have to pass in a ClientId, ClientSecret provided by Kopokopo.
 
 ## Create Webhook subscription Request
 ```c#
