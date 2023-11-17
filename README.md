@@ -41,10 +41,10 @@ A .NET Standard Kopokopo API Helper Library for .NET Developers.
 - PackageManager: ```PM> Install-Package KopokopoSdk```
 - DotNetCLI: ```> dotnet add package KopokopoSdk```
 
-## Setting yourself for successful mpesa integration
-Before you proceed kindly aquaint yourself with Mpesa Apis by going through the Docs in Safaricom's developer portal or Daraja if you like.
+## Setting yourself for successful kopokopo integration
+Before you proceed kindly aquaint yourself with Kopokopo Apis by going through the Docs in Kopokopo's developer portal if you like.
 
-1.  Obtain consumerKey, consumerSecret and Passkey (for Lipa Na Mpesa Online APIs) from daraja portal.
+1.  Obtain ClientId and ClientSecret (for Mpesa Stk Push Online APIs) from Kopokopo Dev portal.
 
 2.  Ensure your project is running on the minimun supported versions of .Net 
 
@@ -56,7 +56,7 @@ Before you proceed kindly aquaint yourself with Mpesa Apis by going through the 
 //create httpclient instance
 var httpClient = new HttpClient();
 
-httpClient.BaseAddress = KopokopoRequestEndPoint.SandboxBaseAddress; //Use MpesaRequestEndPoint.LiveBaseAddress in production
+httpClient.BaseAddress = KopokopoRequestEndPoint.SandboxBaseAddress; //Use KopokopoRequestEndPoint.LiveBaseAddress in production
 	
 //create Kopokopo API client instance
 var kopokopoClient = new KopokopoClient(httpClient); //make sure to pass httpclient intance as an argument
@@ -154,7 +154,7 @@ var accesstoken = await _kopokopoClient..GetOAuthTokenAsync(kopokopoApplicationA
 
 ```
 
-Note that you have to pass in a ClientId, ClientSecret provided by Mpesa.
+Note that you have to pass in a ClientId, ClientSecret provided by Kopokopo.
 
 ## Create Webhook subscription Request
 ```c#
