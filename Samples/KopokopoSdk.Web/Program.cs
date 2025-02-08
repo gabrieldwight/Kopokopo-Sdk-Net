@@ -1,14 +1,14 @@
 using KopokopoSdk.Extensions;
 using KopokopoSdk.Web.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
+builder.Services.AddControllersWithViews().AddJsonOptions(options =>
 {
-    options.SerializerSettings.Formatting = Formatting.Indented;
-    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+    options.JsonSerializerOptions.WriteIndented = true;
+    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
 });
 
 builder.Services.Configure<KopokopoApiConfiguration>(options =>

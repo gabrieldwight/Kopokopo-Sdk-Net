@@ -4,13 +4,11 @@ using KopokopoSdk.Webhooks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-using System.Security.Cryptography;
-using System.Text;
+using System.Text.Json;
 
 namespace KopokopoSdk.Web.Controllers
 {
-    [Route("api/[controller]")]
+	[Route("api/[controller]")]
     [ApiController]
     public class BuyGoodsTransactionWebhookController : ControllerBase
     {
@@ -26,7 +24,7 @@ namespace KopokopoSdk.Web.Controllers
         {
             Request.Headers.TryGetValue("X-KopoKopo-Signature", out StringValues kopokopoSignature);
 
-            if (WebhookSignatureUtil.ValidateKopokopoSignature(JsonConvert.SerializeObject(buyGoodsTransaction), _kopokopoApiConfiguration.ApiKey, kopokopoSignature))
+            if (WebhookSignatureUtil.ValidateKopokopoSignature(JsonSerializer.Serialize(buyGoodsTransaction), _kopokopoApiConfiguration.ApiKey, kopokopoSignature))
             {
                 return Ok();
             }
