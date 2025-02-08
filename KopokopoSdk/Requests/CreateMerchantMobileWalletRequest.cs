@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
@@ -7,25 +7,25 @@ namespace KopokopoSdk.Requests
         /// <summary>
         /// First Name
         /// </summary>
-        [JsonProperty("first_name")]
+        [JsonPropertyName("first_name")]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Last Name
         /// </summary>
-        [JsonProperty("last_name")]
+        [JsonPropertyName("last_name")]
         public string LastName { get; set; }
 
         /// <summary>
         /// Phone number
         /// </summary>
-        [JsonProperty("phone_number")]
+        [JsonPropertyName("phone_number")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
         /// The mobile network to which the phone number belongs
         /// </summary>
-        [JsonProperty("network")]
+        [JsonPropertyName("network")]
         public string Network { get; set; }
     }
 }

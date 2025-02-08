@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
@@ -7,18 +7,19 @@ namespace KopokopoSdk.Requests
         /// <summary>
         /// Application key
         /// </summary>
-        [JsonProperty("client_id")]
+        [JsonPropertyName("client_id")]
         public string ClientId { get; set; }
 
         /// <summary>
         /// Application secret. Only revealed to the user when creating an application or during regeneration of client credentials.
         /// </summary>
 
-        [JsonProperty("client_secret")]
+        [JsonPropertyName("client_secret")]
         public string ClientSecret { get; set; }
 
 
-        [JsonProperty("grant_type")]
+        [JsonPropertyName("grant_type")]
+        [JsonInclude]
         public string GrantType { get; private set; } = "client_credentials";
     }
 }

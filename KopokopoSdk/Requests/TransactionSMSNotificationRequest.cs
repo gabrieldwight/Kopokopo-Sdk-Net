@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
     public class TransactionSMSNotificationRequest : KopokopoBaseRequest
     {
-        [JsonProperty("webhook_event_reference")]
+        [JsonPropertyName("webhook_event_reference")]
         public string WebhookEventReference { get; set; }
 
-        [JsonProperty("message")]
+        [JsonPropertyName("message")]
         public string Message { get; set; }
     }
 }

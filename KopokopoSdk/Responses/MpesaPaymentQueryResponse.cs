@@ -1,86 +1,86 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Responses
 {
     public class MpesaPaymentQueryResponse
     {
-        [JsonProperty("data")]
+        [JsonPropertyName("data")]
         public MpesaPaymentQueryData Data { get; set; }
     }
 
     public class MpesaPaymentQueryData
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("attributes")]
+        [JsonPropertyName("attributes")]
         public MpesaPaymentQueryAttributes Attributes { get; set; }
     }
 
     public class MpesaPaymentQueryAttributes : KopokopoBaseResponse
     {
-        [JsonProperty("initiation_time")]
+        [JsonPropertyName("initiation_time")]
         public DateTimeOffset InitiationTime { get; set; }
 
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("event")]
+        [JsonPropertyName("event")]
         public Event Event { get; set; }
     }
 
     public class Event
     {
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("resource")]
+        [JsonPropertyName("resource")]
         public MpesaPaymentQueryResource Resource { get; set; }
 
-        [JsonProperty("errors")]
+        [JsonPropertyName("errors")]
         public object Errors { get; set; }
     }
 
     public class MpesaPaymentQueryResource
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("reference")]
+        [JsonPropertyName("reference")]
         public string Reference { get; set; }
 
-        [JsonProperty("origination_time")]
+        [JsonPropertyName("origination_time")]
         public DateTimeOffset OriginationTime { get; set; }
 
-        [JsonProperty("sender_phone_number")]
+        [JsonPropertyName("sender_phone_number")]
         public string SenderPhoneNumber { get; set; }
 
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public string Amount { get; set; }
 
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public string Currency { get; set; }
 
-        [JsonProperty("till_number")]
+        [JsonPropertyName("till_number")]
         public string TillNumber { get; set; }
 
-        [JsonProperty("system")]
+        [JsonPropertyName("system")]
         public string System { get; set; }
 
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("sender_first_name")]
+        [JsonPropertyName("sender_first_name")]
         public string SenderFirstName { get; set; }
 
-        [JsonProperty("sender_middle_name")]
+        [JsonPropertyName("sender_middle_name")]
         public object SenderMiddleName { get; set; }
 
-        [JsonProperty("sender_last_name")]
+        [JsonPropertyName("sender_last_name")]
         public string SenderLastName { get; set; }
     }
 }

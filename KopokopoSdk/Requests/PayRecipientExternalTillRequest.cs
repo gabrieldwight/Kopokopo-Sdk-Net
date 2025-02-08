@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
     public class PayRecipientExternalTillRequest
     {
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("pay_recipient")]
+        [JsonPropertyName("pay_recipient")]
         public ExternalTillPayRecipient PayRecipient { get; set; }
     }
 
@@ -16,13 +16,13 @@ namespace KopokopoSdk.Requests
         /// <summary>
         /// The name as indicated on the till
         /// </summary>
-        [JsonProperty("till_name")]
+        [JsonPropertyName("till_name")]
         public string TillName { get; set; }
 
         /// <summary>
         /// The till number
         /// </summary>
-        [JsonProperty("till_number")]
+        [JsonPropertyName("till_number")]
         public string TillNumber { get; set; }
     }
 }

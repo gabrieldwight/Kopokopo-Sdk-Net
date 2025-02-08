@@ -1,19 +1,19 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Webhooks
 {
     public class WebhookBase
     {
-        [JsonProperty("_links")]
+        [JsonPropertyName("_links")]
         public Links Links { get; set; }
     }
 
     public class Links
     {
-        [JsonProperty("self")]
+        [JsonPropertyName("self")]
         public string Self { get; set; }
 
-        [JsonProperty("resource")]
+        [JsonPropertyName("resource")]
         public string Resource { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
@@ -7,31 +7,31 @@ namespace KopokopoSdk.Requests
         /// <summary>
         /// An optional JSON object containing a maximum of 5 key value pairs
         /// </summary>
-        [JsonProperty("metadata")]
+        [JsonPropertyName("metadata")]
         public Metadata Metadata { get; set; }
 
         /// <summary>
         /// A JSON object containing the call back URL where the result of the Incoming Payment will be posted
         /// </summary>
-        [JsonProperty("_links")]
+        [JsonPropertyName("_links")]
         public Links Links { get; set; }
     }
 
     public class Links
     {
-        [JsonProperty("callback_url")]
+        [JsonPropertyName("callback_url")]
         public string CallbackUrl { get; set; }
     }
 
     public class Metadata
     {
-        [JsonProperty("customer_id")]
+        [JsonPropertyName("customer_id")]
         public string CustomerId { get; set; }
 
-        [JsonProperty("reference")]
+        [JsonPropertyName("reference")]
         public string Reference { get; set; }
 
-        [JsonProperty("notes")]
+        [JsonPropertyName("notes")]
         public string Notes { get; set; }
     }
 }

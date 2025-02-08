@@ -1,35 +1,35 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
     public class CreatePaymentRequest : KopokopoBaseRequest
     {
-        [JsonProperty("destination_type")]
+        [JsonPropertyName("destination_type")]
         public string DestinationType { get; set; }
 
-        [JsonProperty("destination_reference")]
+        [JsonPropertyName("destination_reference")]
         public string DestinationReference { get; set; }
 
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonProperty("category")]
+        [JsonPropertyName("category")]
         public string Category { get; set; }
 
-        [JsonProperty("tags")]
+        [JsonPropertyName("tags")]
         public List<string> Tags { get; set; }
 
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public CreatePaymentAmount Amount { get; set; }
     }
 
     public class CreatePaymentAmount
     {
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public string Currency { get; set; }
 
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public long Value { get; set; }
     }
 }

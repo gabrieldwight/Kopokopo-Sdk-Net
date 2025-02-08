@@ -1,29 +1,29 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Responses
 {
     public class KopokopoTokenInformationResponse
     {
-        [JsonProperty("resource_owner_id")]
+        [JsonPropertyName("resource_owner_id")]
         public object ResourceOwnerId { get; set; }
 
-        [JsonProperty("scope")]
+        [JsonPropertyName("scope")]
         public List<object> Scope { get; set; }
 
-        [JsonProperty("expires_in")]
+        [JsonPropertyName("expires_in")]
         public long ExpiresIn { get; set; }
 
-        [JsonProperty("application")]
+        [JsonPropertyName("application")]
         public Application Application { get; set; }
 
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public long CreatedAt { get; set; }
     }
 
     public class Application
     {
-        [JsonProperty("uid")]
+        [JsonPropertyName("uid")]
         public string Uid { get; set; }
     }
 }

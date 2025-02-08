@@ -1,31 +1,31 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
     public class PayRecipientMobileWalletRequest
     {
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("pay_recipient")]
+        [JsonPropertyName("pay_recipient")]
         public MobileWalletPayRecipient PayRecipient { get; set; }
     }
 
     public class MobileWalletPayRecipient
     {
-        [JsonProperty("first_name")]
+        [JsonPropertyName("first_name")]
         public string FirstName { get; set; }
 
-        [JsonProperty("last_name")]
+        [JsonPropertyName("last_name")]
         public string LastName { get; set; }
 
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
 
-        [JsonProperty("phone_number")]
+        [JsonPropertyName("phone_number")]
         public string PhoneNumber { get; set; }
 
-        [JsonProperty("network")]
+        [JsonPropertyName("network")]
         public string Network { get; set; }
     }
 }

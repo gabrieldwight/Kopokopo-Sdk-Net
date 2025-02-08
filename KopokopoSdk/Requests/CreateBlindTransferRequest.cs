@@ -1,20 +1,20 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
     public class CreateBlindTransferRequest : KopokopoBaseRequest
     {
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public BlindTransferAmount Amount { get; set; }
 
     }
 
     public class BlindTransferAmount
     {
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public string Currency { get; set; }
 
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; }
     }
 }

@@ -4,7 +4,6 @@ using KopokopoSdk.Requests;
 using KopokopoSdk.Responses;
 using KopokopoSdk.Validators;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using Polly;
 using Polly.Extensions.Http;
 using System;
@@ -14,6 +13,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,7 +23,6 @@ namespace KopokopoSdk
     {
         private readonly HttpClient _client;
         readonly Random jitterer = new Random();
-        private readonly JsonSerializer _serializer = new JsonSerializer();
 
         public KopokopoClient(Enums.Environment environment)
         {
@@ -504,42 +503,34 @@ namespace KopokopoSdk
             if (response.IsSuccessStatusCode)
             {
 #if NET5_0_OR_GREATER
-                await response.Content.ReadAsStreamAsync(cancellationToken).ContinueWith((Task<Stream> stream) =>
-                {
-                    using var reader = new StreamReader(stream.Result);
-                    using var json = new JsonTextReader(reader);
-                    result = _serializer.Deserialize<T>(json);
-                }, cancellationToken);
+                using (var stream = await response.Content.ReadAsStreamAsync(cancellationToken))
+				{
+					result = await JsonSerializer.DeserializeAsync<T>(stream, cancellationToken: cancellationToken);
+				}
 #endif
 #if NETSTANDARD2_0_OR_GREATER
-                await response.Content.ReadAsStreamAsync().ContinueWith((Task<Stream> stream) =>
-                {
-                    using var reader = new StreamReader(stream.Result);
-                    using var json = new JsonTextReader(reader);
-                    result = _serializer.Deserialize<T>(json);
-                }, cancellationToken);
+				using (var stream = await response.Content.ReadAsStreamAsync())
+				{
+					result = await JsonSerializer.DeserializeAsync<T>(stream, cancellationToken: cancellationToken);
+				}
 #endif
-            }
+			}
             else
             {
                 KopokopoErrorResponse kopokopoErrorResponse = new KopokopoErrorResponse();
 #if NET5_0_OR_GREATER
-                await response.Content.ReadAsStreamAsync(cancellationToken).ContinueWith((Task<Stream> stream) =>
-                {
-                    using var reader = new StreamReader(stream.Result);
-                    using var json = new JsonTextReader(reader);
-                    kopokopoErrorResponse = _serializer.Deserialize<KopokopoErrorResponse>(json);
-                }, cancellationToken);
+                using (var stream = await response.Content.ReadAsStreamAsync(cancellationToken))
+				{
+					kopokopoErrorResponse = await JsonSerializer.DeserializeAsync<KopokopoErrorResponse>(stream, cancellationToken: cancellationToken);
+				}
                 throw new KopokopoAPIException(new HttpRequestException(kopokopoErrorResponse.ErrorMessage), response.StatusCode, kopokopoErrorResponse);
 #endif
 #if NETSTANDARD2_0_OR_GREATER
-                await response.Content.ReadAsStreamAsync().ContinueWith((Task<Stream> stream) =>
-                {
-                    using var reader = new StreamReader(stream.Result);
-                    using var json = new JsonTextReader(reader);
-                    kopokopoErrorResponse = _serializer.Deserialize<KopokopoErrorResponse>(json);
-                }, cancellationToken);
-                throw new KopokopoAPIException(new HttpRequestException(kopokopoErrorResponse.ErrorMessage), response.StatusCode, kopokopoErrorResponse);
+				using (var stream = await response.Content.ReadAsStreamAsync())
+				{
+					kopokopoErrorResponse = await JsonSerializer.DeserializeAsync<KopokopoErrorResponse>(stream, cancellationToken: cancellationToken);
+				}
+				throw new KopokopoAPIException(new HttpRequestException(kopokopoErrorResponse.ErrorMessage), response.StatusCode, kopokopoErrorResponse);
 #endif
             }
             return result;
@@ -552,7 +543,7 @@ namespace KopokopoSdk
                 _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             }
             T result = new();
-            string json = JsonConvert.SerializeObject(kopokopoDto);
+            string json = JsonSerializer.Serialize(kopokopoDto);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             cancellationToken.ThrowIfCancellationRequested();
             var response = await _client.PostAsync(kopokopoEndpoint, content, cancellationToken).ConfigureAwait(false);
@@ -560,42 +551,34 @@ namespace KopokopoSdk
             if (response.IsSuccessStatusCode)
             {
 #if NET5_0_OR_GREATER
-                await response.Content.ReadAsStreamAsync(cancellationToken).ContinueWith((Task<Stream> stream) =>
-                {
-                    using var reader = new StreamReader(stream.Result);
-                    using var json = new JsonTextReader(reader);
-                    result = _serializer.Deserialize<T>(json);
-                }, cancellationToken);
+                using (var stream = await response.Content.ReadAsStreamAsync(cancellationToken))
+				{
+					result = await JsonSerializer.DeserializeAsync<T>(stream, cancellationToken: cancellationToken);
+				}
 #endif
 #if NETSTANDARD2_0_OR_GREATER
-                await response.Content.ReadAsStreamAsync().ContinueWith((Task<Stream> stream) =>
-                {
-                    using var reader = new StreamReader(stream.Result);
-                    using var json = new JsonTextReader(reader);
-                    result = _serializer.Deserialize<T>(json);
-                }, cancellationToken);
+				using (var stream = await response.Content.ReadAsStreamAsync())
+				{
+					result = await JsonSerializer.DeserializeAsync<T>(stream, cancellationToken: cancellationToken);
+				}
 #endif
-            }
+			}
             else
             {
                 KopokopoErrorResponse kopokopoErrorResponse = new KopokopoErrorResponse();
 #if NET5_0_OR_GREATER
-                await response.Content.ReadAsStreamAsync(cancellationToken).ContinueWith((Task<Stream> stream) =>
-                {
-                    using var reader = new StreamReader(stream.Result);
-                    using var json = new JsonTextReader(reader);
-                    kopokopoErrorResponse = _serializer.Deserialize<KopokopoErrorResponse>(json);
-                }, cancellationToken);
+                using (var stream = await response.Content.ReadAsStreamAsync(cancellationToken))
+				{
+					kopokopoErrorResponse = await JsonSerializer.DeserializeAsync<KopokopoErrorResponse>(stream, cancellationToken: cancellationToken);
+				}
                 throw new KopokopoAPIException(new HttpRequestException(kopokopoErrorResponse.ErrorMessage), response.StatusCode, kopokopoErrorResponse);
 #endif
 #if NETSTANDARD2_0_OR_GREATER
-                await response.Content.ReadAsStreamAsync().ContinueWith((Task<Stream> stream) =>
-                {
-                    using var reader = new StreamReader(stream.Result);
-                    using var json = new JsonTextReader(reader);
-                    kopokopoErrorResponse = _serializer.Deserialize<KopokopoErrorResponse>(json);
-                }, cancellationToken);
-                throw new KopokopoAPIException(new HttpRequestException(kopokopoErrorResponse.ErrorMessage), response.StatusCode, kopokopoErrorResponse);
+				using (var stream = await response.Content.ReadAsStreamAsync())
+				{
+					kopokopoErrorResponse = await JsonSerializer.DeserializeAsync<KopokopoErrorResponse>(stream, cancellationToken: cancellationToken);
+				}
+				throw new KopokopoAPIException(new HttpRequestException(kopokopoErrorResponse.ErrorMessage), response.StatusCode, kopokopoErrorResponse);
 #endif
             }
             return result;

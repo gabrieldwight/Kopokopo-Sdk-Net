@@ -1,25 +1,25 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Responses
 {
     public class KopokopoTokenIntrospectionResponse
     {
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool Active { get; set; }
 
-        [JsonProperty("scope")]
+        [JsonPropertyName("scope")]
         public string Scope { get; set; }
 
-        [JsonProperty("client_id")]
+        [JsonPropertyName("client_id")]
         public string ClientId { get; set; }
 
-        [JsonProperty("token_type")]
+        [JsonPropertyName("token_type")]
         public string TokenType { get; set; }
 
-        [JsonProperty("exp")]
+        [JsonPropertyName("exp")]
         public long Exp { get; set; }
 
-        [JsonProperty("iat")]
+        [JsonPropertyName("iat")]
         public long Iat { get; set; }
     }
 }

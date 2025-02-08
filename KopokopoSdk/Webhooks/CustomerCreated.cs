@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Webhooks
 {
@@ -8,22 +8,22 @@ namespace KopokopoSdk.Webhooks
         /// <summary>
         /// The topic of the webhook. customer_created in this instance.
         /// </summary>
-        [JsonProperty("topic")]
+        [JsonPropertyName("topic")]
         public string Topic { get; set; }
 
         /// <summary>
         /// The ID of the Webhook Event
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
         /// <summary>
         /// The timestamp of when the webhook event was created.
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public DateTimeOffset CreatedAt { get; set; }
 
-        [JsonProperty("event")]
+        [JsonPropertyName("event")]
         public CustomerCreatedEvent Event { get; set; }
     }
 
@@ -32,13 +32,13 @@ namespace KopokopoSdk.Webhooks
         /// <summary>
         /// The type of record (Mobile Money User)
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
         /// <summary>
         /// The resource corresponding to the event. In this case this is a Mobile Money User
         /// </summary>
-        [JsonProperty("resource")]
+        [JsonPropertyName("resource")]
         public CustomerCreatedResource Resource { get; set; }
     }
 
@@ -47,25 +47,25 @@ namespace KopokopoSdk.Webhooks
         /// <summary>
         /// Last name of customer
         /// </summary>
-        [JsonProperty("last_name")]
+        [JsonPropertyName("last_name")]
         public string LastName { get; set; }
 
         /// <summary>
         /// First name of customer
         /// </summary>
-        [JsonProperty("first_name")]
+        [JsonPropertyName("first_name")]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Middle name of customer
         /// </summary>
-        [JsonProperty("middle_name")]
+        [JsonPropertyName("middle_name")]
         public string MiddleName { get; set; }
 
         /// <summary>
         /// Phone number of customer
         /// </summary>
-        [JsonProperty("phone_number")]
+        [JsonPropertyName("phone_number")]
         public string PhoneNumber { get; set; }
     }
 }

@@ -1,66 +1,66 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Responses
 {
     public class TransferQueryStatusResponse
     {
-        [JsonProperty("data")]
+        [JsonPropertyName("data")]
         public TransferQueryStatusData Data { get; set; }
     }
 
     public class TransferQueryStatusData
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("attributes")]
+        [JsonPropertyName("attributes")]
         public TransferQueryStatusAttributes Attributes { get; set; }
     }
 
     public class TransferQueryStatusAttributes : KopokopoBaseResponse
     {
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public DateTimeOffset CreatedAt { get; set; }
 
-        [JsonProperty("transfer_batches")]
+        [JsonPropertyName("transfer_batches")]
         public List<TransferQueryStatusTransferBatch> TransferBatches { get; set; }
     }
 
     public class TransferQueryStatusTransferBatch
     {
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("disbursements")]
+        [JsonPropertyName("disbursements")]
         public List<TransferQueryStatusDisbursement> Disbursements { get; set; }
     }
 
     public class TransferQueryStatusDisbursement
     {
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public string Amount { get; set; }
 
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("destination_type")]
+        [JsonPropertyName("destination_type")]
         public string DestinationType { get; set; }
 
-        [JsonProperty("origination_time")]
+        [JsonPropertyName("origination_time")]
         public DateTimeOffset OriginationTime { get; set; }
 
-        [JsonProperty("destination_reference")]
+        [JsonPropertyName("destination_reference")]
         public string DestinationReference { get; set; }
 
-        [JsonProperty("transaction_reference")]
+        [JsonPropertyName("transaction_reference")]
         public string TransactionReference { get; set; }
     }
 }

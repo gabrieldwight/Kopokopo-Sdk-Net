@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Webhooks
 {
@@ -8,22 +8,22 @@ namespace KopokopoSdk.Webhooks
         /// <summary>
         /// The topic of the webhook. m2m_transaction_received in this instance.
         /// </summary>
-        [JsonProperty("topic")]
+        [JsonPropertyName("topic")]
         public string Topic { get; set; }
 
         /// <summary>
         /// The ID of the Webhook Event
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
         /// <summary>
         /// The timestamp of when the webhook event was created.
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public DateTimeOffset CreatedAt { get; set; }
 
-        [JsonProperty("event")]
+        [JsonPropertyName("event")]
         public MerchantToMerchantEvent Event { get; set; }
     }
 
@@ -32,13 +32,13 @@ namespace KopokopoSdk.Webhooks
         /// <summary>
         /// The type of transaction (Merchant to Merchant Transaction)
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
         /// <summary>
         /// The resource corresponding to the event. In this case this is a Merchant to Merchant Transaction
         /// </summary>
-        [JsonProperty("resource")]
+        [JsonPropertyName("resource")]
         public MerchantToMerchantResource Resource { get; set; }
     }
 
@@ -47,37 +47,37 @@ namespace KopokopoSdk.Webhooks
         /// <summary>
         /// The api reference of the transaction
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
         /// <summary>
         /// The amount of the transaction
         /// </summary>
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// The status of the transaction
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
         /// <summary>
         /// Currency
         /// </summary>
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// The transaction timestamp
         /// </summary>
-        [JsonProperty("origination_time")]
+        [JsonPropertyName("origination_time")]
         public DateTimeOffset OriginationTime { get; set; }
 
         /// <summary>
         /// Name of merchant
         /// </summary>
-        [JsonProperty("sending_merchant")]
+        [JsonPropertyName("sending_merchant")]
         public string SendingMerchant { get; set; }
     }
 }

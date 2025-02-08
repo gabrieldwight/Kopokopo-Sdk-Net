@@ -1,34 +1,34 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Responses
 {
     public class TransactionNotificationQueryStatusResponse
     {
-        [JsonProperty("data")]
+        [JsonPropertyName("data")]
         public TransactionNotificationQueryStatusData Data { get; set; }
     }
 
     public class TransactionNotificationQueryStatusData
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("attributes")]
+        [JsonPropertyName("attributes")]
         public TransactionNotificationQueryStatusAttributes Attributes { get; set; }
     }
 
     public class TransactionNotificationQueryStatusAttributes : KopokopoBaseResponse
     {
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("message")]
+        [JsonPropertyName("message")]
         public string Message { get; set; }
 
-        [JsonProperty("webhook_event_reference")]
+        [JsonPropertyName("webhook_event_reference")]
         public string WebhookEventReference { get; set; }
     }
 }

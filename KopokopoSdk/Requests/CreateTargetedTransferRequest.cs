@@ -1,25 +1,25 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Requests
 {
     public class CreateTargetedTransferRequest : KopokopoBaseRequest
     {
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public TargetedTransferAmount Amount { get; set; }
 
-        [JsonProperty("destination_type")]
+        [JsonPropertyName("destination_type")]
         public string DestinationType { get; set; }
 
-        [JsonProperty("destination_reference")]
+        [JsonPropertyName("destination_reference")]
         public string DestinationReference { get; set; }
     }
 
     public class TargetedTransferAmount
     {
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public string Currency { get; set; }
 
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; }
     }
 }

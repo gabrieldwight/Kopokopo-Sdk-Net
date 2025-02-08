@@ -1,46 +1,46 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Responses
 {
     public class KopokopoBaseResponse
     {
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public Amount Amount { get; set; }
 
-        [JsonProperty("metadata")]
+        [JsonPropertyName("metadata")]
         public Metadata Metadata { get; set; }
 
-        [JsonProperty("_links")]
+        [JsonPropertyName("_links")]
         public Links Links { get; set; }
     }
 
     public class Amount
     {
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public string Currency { get; set; }
 
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; }
     }
 
     public class Links
     {
-        [JsonProperty("callback_url")]
+        [JsonPropertyName("callback_url")]
         public string CallbackUrl { get; set; }
 
-        [JsonProperty("self")]
+        [JsonPropertyName("self")]
         public string Self { get; set; }
     }
 
     public class Metadata
     {
-        [JsonProperty("customer_id")]
+        [JsonPropertyName("customer_id")]
         public string CustomerId { get; set; }
 
-        [JsonProperty("reference")]
+        [JsonPropertyName("reference")]
         public string Reference { get; set; }
 
-        [JsonProperty("notes")]
+        [JsonPropertyName("notes")]
         public string Notes { get; set; }
     }
 }

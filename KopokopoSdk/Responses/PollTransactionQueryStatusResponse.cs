@@ -1,96 +1,96 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Responses
 {
     public class PollTransactionQueryStatusResponse
     {
-        [JsonProperty("data")]
+        [JsonPropertyName("data")]
         public PollTransactionQueryStatusData Data { get; set; }
     }
 
     public class PollTransactionQueryStatusData
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("attributes")]
+        [JsonPropertyName("attributes")]
         public PollTransactionQueryStatusAttributes Attributes { get; set; }
     }
 
     public class PollTransactionQueryStatusAttributes : KopokopoBaseResponse
     {
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public DateTimeOffset CreatedAt { get; set; }
 
-        [JsonProperty("from_time")]
+        [JsonPropertyName("from_time")]
         public DateTimeOffset FromTime { get; set; }
 
-        [JsonProperty("to_time")]
+        [JsonPropertyName("to_time")]
         public DateTimeOffset ToTime { get; set; }
 
-        [JsonProperty("transactions")]
+        [JsonPropertyName("transactions")]
         public List<Transaction> Transactions { get; set; }
 
-        [JsonProperty("scope")]
+        [JsonPropertyName("scope")]
         public string Scope { get; set; }
 
-        [JsonProperty("scope_reference")]
+        [JsonPropertyName("scope_reference")]
         public object ScopeReference { get; set; }
     }
 
     public class Transaction
     {
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("resource")]
+        [JsonPropertyName("resource")]
         public PollTransactionQueryStatusResource Resource { get; set; }
     }
 
     public class PollTransactionQueryStatusResource
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public string Amount { get; set; }
 
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("system")]
+        [JsonPropertyName("system")]
         public string System { get; set; }
 
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public string Currency { get; set; }
 
-        [JsonProperty("reference")]
+        [JsonPropertyName("reference")]
         public string Reference { get; set; }
 
-        [JsonProperty("till_number")]
+        [JsonPropertyName("till_number")]
         public string TillNumber { get; set; }
 
-        [JsonProperty("origination_time")]
+        [JsonPropertyName("origination_time")]
         public DateTimeOffset OriginationTime { get; set; }
 
-        [JsonProperty("sender_last_name")]
+        [JsonPropertyName("sender_last_name")]
         public string SenderLastName { get; set; }
 
-        [JsonProperty("sender_first_name")]
+        [JsonPropertyName("sender_first_name")]
         public string SenderFirstName { get; set; }
 
-        [JsonProperty("sender_middle_name")]
+        [JsonPropertyName("sender_middle_name")]
         public string SenderMiddleName { get; set; }
 
-        [JsonProperty("sender_phone_number")]
+        [JsonPropertyName("sender_phone_number")]
         public string SenderPhoneNumber { get; set; }
     }
 }

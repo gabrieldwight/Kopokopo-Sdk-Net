@@ -1,22 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace KopokopoSdk.Responses
 {
     public class KopokopoAccessTokenResponse
     {
-        [JsonProperty("access_token")]
+        [JsonPropertyName("access_token")]
         public string AccessToken { get; set; }
 
 
-        [JsonProperty("token_type")]
+        [JsonPropertyName("token_type")]
         public string TokenType { get; set; }
 
 
-        [JsonProperty("expires_in")]
+        [JsonPropertyName("expires_in")]
         public long ExpiresIn { get; set; }
 
 
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public long CreatedAt { get; set; }
     }
 }
